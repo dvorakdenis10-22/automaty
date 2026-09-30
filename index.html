@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Učebnice – hra</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INTRO -->
+<section id="intro" class="screen">
+  <div class="dialog">
+    <div id="intro-portrait">👩</div>
+    <p id="intro-speaker">Máma</p>
+    <p id="intro-text"></p>
+    <button id="intro-next" class="btn">Pokračovat</button>
+  </div>
+</section>
+
+<!-- HRA -->
+<main id="game" class="hidden">
+  <header class="top">
+    <div class="wallet"><span>Peněženka</span><strong id="money">0 Kč</strong></div>
+    <div class="pocket">
+      <span>KAPESNÉ</span>
+      <button id="pocket-btn" class="btn small" disabled>Za <b id="pocket-timer">5:00</b></button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="slots">Automat</button>
+    <button class="tab" data-tab="cases">Bedny</button>
+    <button class="tab" data-tab="inv">Inventář <em id="inv-count">0</em></button>
+  </nav>
+
+  <section id="slots" class="panel">
+    <div class="machine">
+      <div class="reels">
+        <div class="reel"><div class="sym">🍒</div></div>
+        <div class="reel"><div class="sym">🍋</div></div>
+        <div class="reel"><div class="sym">🔔</div></div>
+      </div>
+      <p id="slot-msg">Nastav sázku a zatoč.</p>
+      <div class="bet">
+        <button class="btn small" id="bet-minus">−</button>
+        <input id="bet-input" type="number" min="10" value="100">
+        <button class="btn small" id="bet-plus">+</button>
+        <button class="btn small ghost" id="bet-max">Vše</button>
+      </div>
+      <button id="spin" class="btn big">TOČIT</button>
+      <p class="hint">3 stejné = 5× až 50× sázka · 2 stejné = 1,5× sázka</p>
+    </div>
+  </section>
+
+  <section id="cases" class="panel hidden">
+    <div id="case-list" class="case-grid"></div>
+    <div id="case-open" class="hidden">
+      <div class="roulette"><div class="marker"></div><div id="strip" class="strip"></div></div>
+      <p id="case-result"></p>
+    </div>
+  </section>
+
+  <section id="inv" class="panel hidden">
+    <div class="inv-head"><button id="sell-all" class="btn small">Prodat vše</button></div>
+    <div id="inv-list" class="case-grid"></div>
+  </section>
+
+  <p id="story-note"></p>
+</main>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
